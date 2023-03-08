@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calculator</title>
+		<link rel="stylesheet" href="calc.css" />
+	</head>
+	<link
+		rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous"
+	/>
+	<body>
+		<!-- <section>
+			<div class="calculator_box">
+				<div class="main">
+					<div class="result"><input type="text" value="0" /></div>
+					<div class="all_btn">
+						<div><input type="button" /><input type="button" /></div>
+						<div>
+							<input type="button" /><input type="button" /><input
+								type="button"
+							/><input type="button" /><input type="button" />
+						</div>
+						<div class="dropdown_btn">
+							<input type="button" /><input type="button" />
+						</div>
+						<div>
+							<input type="button" /><input type="button" /><input
+								type="button"
+							/><input type="button" /><input type="button" />
+						</div>
+						<div>
+							<input type="button" /><input type="button" /><input
+								type="button"
+							/><input type="button" /><input type="button" />
+						</div>
+						<div>
+							<input type="button" /><input type="button" /><input
+								type="button"
+							/><input type="button" /><input type="button" />
+						</div>
+						<div>
+							<input type="button" /><input type="button" /><input
+								type="button"
+							/><input type="button" /><input type="button" />
+						</div>
+						<div>
+							<input type="button" /><input type="button" /><input
+								type="button"
+							/><input type="button" /><input type="button" />
+						</div>
+						<div>
+							<input type="button" /><input type="button" /><input
+								type="button"
+							/><input type="button" /><input type="button" />
+						</div>
+						<div>
+							<input type="button" /><input type="button" /><input
+								type="button"
+							/><input type="button" /><input type="button" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> -->
+		<section>
+			<div class="calculator_box">
+				<div class="main">
+					<div class="result">
+						<input type="text" name="result" id="result" placeholder="0" value="" />
+					</div>
+					<div class="all_btn">
+						<div class="deg_fe">
+							<button type="submit" id="deg">DEG</button
+							><button type="submit" id="fe">F-E</button>
+						</div>
+						<div class="memory_function">
+							<button type="submit" id="mc">MC</button
+							><button type="submit" id="mr">MR</button
+							><button type="submit" id="m_plus">M+</button
+							><button type="submit" id="m_minus">M-</button
+							><button type="submit" id="ms">MS</button>
+						</div>
+						<div class="dropdown_btn">
+							<button class="trigonometry" type="submit" id="trigonometry">
+								<span
+									><img
+										src="Asset/trigonometry.png"
+										style="height: 18px"
+										alt=""
+										srcset=""
+								/></span>
+								Trigonometry<span class="arrow"></span></button
+							><button class="function" type="submit" id="function">
+								<span
+									><img
+										src="Asset/function-f.png"
+										style="height: 20px"
+										alt=""
+										srcset="" /></span
+								>Function<span class="arrow"></span>
+							</button>
+						</div>
+						<div>
+							<button type="submit" id="two_nd">
+								2 <sup style="margin-left: -5px">nd</sup></button
+							><button type="submit" id="pie">π</button
+							><button type="submit" id="e">e</button
+							><button
+								type="submit"
+								id="c"
+								onclick="document.getElementById('result').value = ''"
+							>
+								C</button
+							><button
+								type="submit"
+								id="backspace"
+								onclick="document.getElementById('result').value = document.getElementById('result').value.toString().slice(0,-1)"
+							>
+								⌫
+							</button>
+						</div>
+						<div>
+							<button type="submit" id="x_square">x<sup>2 </sup></button
+							><button type="submit" id="one_by_x">1/x</button
+							><button type="submit" id="x_mod">|x|</button
+							><button type="submit" id="exp">exp</button
+							><button type="submit" id="mod">mod</button>
+						</div>
+						<div>
+							<button type="submit" id="2_root_x">
+								<sup>2</sup> <span style="margin-left: -5px">√x</span></button
+							><button
+								type="submit"
+								id="opne_bracket"
+								onclick="document.getElementById('result').value += '&#40;'"
+							>
+								(</button
+							><button type="submit" id="close_bracket" onclick="document.getElementById('result').value += '&#41'">)</button
+							><button type="submit" id="n_factorial">n!</button
+							><button
+								type="submit"
+								id="divide"
+								onclick="document.getElementById('result').value += '/'"
+							>
+								÷
+							</button>
+						</div>
+						<div>
+							<button type="submit" id="x_power_y">x<sup>y</sup></button
+							><button
+								type="submit"
+								id="7"
+								onclick="document.getElementById('result').value += '7'"
+							>
+								7</button
+							><button
+								type="submit"
+								id="8"
+								onclick="document.getElementById('result').value += '8'"
+							>
+								8</button
+							><button
+								type="submit"
+								id="9"
+								onclick="document.getElementById('result').value += '9'"
+							>
+								9</button
+							><button
+								type="submit"
+								id="multiply"
+								onclick="document.getElementById('result').value += '*'"
+							>
+								×
+							</button>
+						</div>
+						<div>
+							<button type="submit" id="10_power_x">10<sup>x</sup></button
+							><button
+								type="submit"
+								id="4"
+								onclick="document.getElementById('result').value += '4'"
+							>
+								4</button
+							><button
+								type="submit"
+								id="5"
+								onclick="document.getElementById('result').value += '5'"
+							>
+								5</button
+							><button
+								type="submit"
+								id="6"
+								onclick="document.getElementById('result').value += '6'"
+							>
+								6</button
+							><button
+								type="submit"
+								id="subtraction"
+								onclick="document.getElementById('result').value += '-'"
+							>
+								-
+							</button>
+						</div>
+						<div>
+							<button type="submit" id="log">log</button
+							><button
+								type="submit"
+								id="1"
+								onclick="document.getElementById('result').value += '1'"
+							>
+								1</button
+							><button
+								type="submit"
+								id="2"
+								onclick="document.getElementById('result').value += '2'"
+							>
+								2</button
+							><button
+								type="submit"
+								id="3"
+								onclick="document.getElementById('result').value += '3'"
+							>
+								3</button
+							><button
+								type="submit"
+								id="addition"
+								onclick="document.getElementById('result').value += '+'"
+							>
+								+
+							</button>
+						</div>
+						<div>
+							<button type="submit" id="in">ln</button
+							><button type="submit" id="addition_by_subtraction">
+								+/<sub>-</sub></button
+							><button
+								type="submit"
+								id="zero"
+								onclick="document.getElementById('result').value += '0'"
+							>
+								0</button
+							><button
+								type="submit"
+								id="dot"
+								onclick="document.getElementById('result').value += '.'"
+							>
+								.</button
+							><button
+								type="submit"
+								id=""
+								class="equal"
+								onmouseover="this.style.backgroundColor='rgb(151, 203, 202)'"
+								onmouseout="this.style.backgroundColor='rgb(142, 216, 214)'"
+								style="background-color: rgb(142, 216, 214)"
+								onclick="getEvaluatedResult()"
+							>
+								=
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="JS/calc.js"></script>
+	</body>
+</html>
