@@ -1,140 +1,114 @@
-// function calculate_expression() {
-// 	let result = document.getElementById('result').value;
-// 	console.log(result);
+// const result = document.getElementById("result").value;
+// function getResult() {
+//   const result = document.getElementById("result").value;
+//   console.log(result);
 
-// 	// initially stack will be empty
-// 	const stack = [];
-
-// 	for (let i = 0; i < result.length; i++) {
-// 		const token = result[i];
-
-// 		if (!isNaN(token)) {
-// 			// if the token is a number, push it onto the stack
-// 			stack.push(Number(token));
-// 		} else {
-// 			// if the token is an operator, pop the top two values from the stack,
-// 			// apply the operator to them, and push the result back onto the stack
-// 			const operand1 = stack.pop();
-// 			const operand2 = stack.pop();
-
-// 			switch (token) {
-// 				case '+':
-// 					stack.push(operand1 + operand2);
-// 					break;
-// 				case '-':
-// 					stack.push(operand1 - operand2);
-// 					break;
-// 				case '×':
-// 					stack.push(operand1 * operand2);
-// 					break;
-// 				case '÷':
-// 					stack.push(operand1 / operand2);
-// 					break;
-// 				default:
-// 					alert('Invalid operator');
-// 			}
-// 		}
-// 	}
-
-// 	// Final result will be on the top of the stack
-// 	console.log(stack.pop());
-// 	return stack.pop();
+//   const body = document.querySelector("body");
+//   body.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//   });
 // }
 
-//calculate_expression()
+const arr = [
+	'0',
+	'1',
+	'2',
+	'3',
+	'4',
+	'5',
+	'6',
+	'7',
+	'8',
+	'9',
+	'+',
+	'-',
+	'/',
+	'*',
+	'%',
+	'(',
+	')',
+	'.',
+];
 
-//case 2------------------------------------------------------------------------------
-function calculate_expression(expression) {
-	// Step 1: Convert the expression to postfix notation
-	const postfixExpression = infixToPostfix(expression);
-
-	// Step 2: Evaluate the postfix expression using a stack
-	const stack = [];
-	for (let i = 0; i < postfixExpression.length; i++) {
-		const symbol = postfixExpression[i];
-		if (isOperand(symbol)) {
-			stack.push(parseFloat(symbol));
-		} else if (isOperator(symbol)) {
-			const operand2 = stack.pop();
-			const operand1 = stack.pop();
-			const result1 = applyOperator(symbol, operand1, operand2);
-			stack.push(result1);
+// display keyboard key on screen when keyboard numbers or operators click
+document.addEventListener('keydown', (event) => {
+	// console.log(event);
+	if (arr.includes(event.key)) {
+		document.getElementById('result').value += event.key;
+	}
+	if (event.key == 'Enter' || event.key == '=') {
+		try {
+			const result = document.getElementById('result').value;
+			document.getElementById('result').value = eval(result);
+			console.log(result);
+		} catch (error) {
+			document.getElementById('result').value = 'Syntax Error';
 		}
 	}
-
-	// The final result is on the top of the stack
-	return stack.pop();
-}
-
-// Helper functions
-
-function infixToPostfix(expression) {
-	const stack = [];
-	const output = [];
-
-	const precedence = {
-		'+': 1,
-		'-': 1,
-		'*': 2,
-		'/': 2,
-	};
-
-	for (let i = 0; i < expression.length; i++) {
-		const symbol = expression[i];
-		if (isOperand(symbol)) {
-			output.push(symbol);
-		} else if (isOperator(symbol)) {
-			while (
-				stack.length > 0 &&
-				stack[stack.length - 1] !== '(' &&
-				precedence[symbol] <= precedence[stack[stack.length - 1]]
-			) {
-				output.push(stack.pop());
-			}
-			stack.push(symbol);
-		} else if (symbol === '(') {
-			stack.push(symbol);
-		} else if (symbol === ')') {
-			while (stack.length > 0 && stack[stack.length - 1] !== '(') {
-				output.push(stack.pop());
-			}
-			stack.pop();
-		}
+	if (event.key == 'Backspace') {
+		document.getElementById('result').value = document
+			.getElementById('result')
+			.value.slice(0, -1);
 	}
+});
 
-	while (stack.length > 0) {
-		output.push(stack.pop());
+// Get all the number buttons
+var numberButtons = document.getElementsByClassName('calcBtn');
+
+// Add a click event listener to each button
+for (var i = 0; i < numberButtons.length; i++) {
+	numberButtons[i].addEventListener('click', function () {
+		// Get the value of the clicked button
+		var buttonValue = this.value;
+
+		// Get the current value of the input field
+		var result = document.getElementById('result').value;
+
+		// Add the button value to the input field
+		document.getElementById('result').value = result + buttonValue;
+	});
+}
+
+// to get result on screen when equal button pressed by user
+const equalBtn = document.getElementById('eval');
+equalBtn.addEventListener('click', () => {
+	try {
+		const result = document.getElementById('result').value;
+		document.getElementById('result').value = eval(result);
+		console.log(result);
+	} catch (error) {
+		document.getElementById('result').value = 'Syntax Error';
 	}
+});
 
-	return output;
-}
+// toggle button on 2nd button click
+// const secondBtn = document.getElementById('second');
+// secondBtn.addEventListener('click', () => {
+// 	let buttonContainer = document.getElementsByClassName('sub_btn_container');
+// 	// for loop to get first button element of all sub_btn_container class
+// 	for (let i = 0; i < buttonContainer.length; i++) {
+// 		const firstChild = buttonContainer[i].firstElementChild;
+// 		if (secondBtn) {
+// 			firstChild.innerHTML = `
+// 			<button type="submit" id="one_by_x">123</button>
+// 		  `;
+// 		} else {
+// 			firstChild.innerHTML = ``;
+// 		}
+// 		// alert('Hello world');
+// 	}
+// });
 
-function isOperand(symbol) {
-	return !isNaN(parseFloat(symbol));
-}
-
-function isOperator(symbol) {
-	return ['+', '-', '*', '/'].includes(symbol);
-}
-
-function applyOperator(operator, operand1, operand2) {
-	switch (operator) {
-		case '+':
-			return operand1 + operand2;
-		case '-':
-			return operand1 - operand2;
-		case '*':
-			return operand1 * operand2;
-		case '/':
-			return operand1 / operand2;
-	}
-}
-
-// Calling above function to get final result on display of calculator
-function getEvaluatedResult() {
-	const result = document.getElementById('result').value;
-	const expression = result;
-	const outcome = calculate_expression(expression);
-	console.log(outcome);
-	document.getElementById('result').value = outcome;
-}
+// function test() {
+// 	// var buttonContainer = document.getElementById("buttonContainer");
+// 	let buttonContainer =
+// 		document.getElementsByClassName('sub_btn_container').firstElementChild;
+// 	if (buttonContainer.innerHTML === '') {
+// 		buttonContainer.innerHTML = `
+// 		<button>Button 1</button>
+// 		<button>Button 2</button>
+// 	  `;
+// 	} else {
+// 		buttonContainer.innerHTML = '';
+// 	}
+// }
