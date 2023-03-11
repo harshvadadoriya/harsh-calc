@@ -1,13 +1,4 @@
-// const result = document.getElementById("result").value;
-// function getResult() {
-//   const result = document.getElementById("result").value;
-//   console.log(result);
-
-//   const body = document.querySelector("body");
-//   body.addEventListener("submit", (event) => {
-//     event.preventDefault();
-//   });
-// }
+// let result = document.getElementById('result').value;
 
 const arr = [
 	'0',
@@ -38,7 +29,7 @@ document.addEventListener('keydown', (event) => {
 	}
 	if (event.key == 'Enter' || event.key == '=') {
 		try {
-			const result = document.getElementById('result').value;
+			let result = document.getElementById('result').value;
 			document.getElementById('result').value = eval(result);
 			console.log(result);
 		} catch (error) {
@@ -53,16 +44,15 @@ document.addEventListener('keydown', (event) => {
 });
 
 // Get all the number buttons
-var numberButtons = document.getElementsByClassName('calcBtn');
-
+let numberButtons = document.getElementsByClassName('calcBtn');
 // Add a click event listener to each button
-for (var i = 0; i < numberButtons.length; i++) {
+for (let i = 0; i < numberButtons.length; i++) {
 	numberButtons[i].addEventListener('click', function () {
 		// Get the value of the clicked button
-		var buttonValue = this.value;
+		let buttonValue = this.value;
 
 		// Get the current value of the input field
-		var result = document.getElementById('result').value;
+		let result = document.getElementById('result').value;
 
 		// Add the button value to the input field
 		document.getElementById('result').value = result + buttonValue;
@@ -73,7 +63,7 @@ for (var i = 0; i < numberButtons.length; i++) {
 const equalBtn = document.getElementById('eval');
 equalBtn.addEventListener('click', () => {
 	try {
-		const result = document.getElementById('result').value;
+		let result = document.getElementById('result').value;
 		document.getElementById('result').value = eval(result);
 		console.log(result);
 	} catch (error) {
@@ -81,34 +71,50 @@ equalBtn.addEventListener('click', () => {
 	}
 });
 
-// toggle button on 2nd button click
-// const secondBtn = document.getElementById('second');
-// secondBtn.addEventListener('click', () => {
-// 	let buttonContainer = document.getElementsByClassName('sub_btn_container');
-// 	// for loop to get first button element of all sub_btn_container class
-// 	for (let i = 0; i < buttonContainer.length; i++) {
-// 		const firstChild = buttonContainer[i].firstElementChild;
-// 		if (secondBtn) {
-// 			firstChild.innerHTML = `
-// 			<button type="submit" id="one_by_x">123</button>
-// 		  `;
-// 		} else {
-// 			firstChild.innerHTML = ``;
-// 		}
-// 		// alert('Hello world');
-// 	}
-// });
+// (2nd) toggle button functionality
+const toggleButton = document.querySelector('#toggle-button');
+const buttons1 = document.querySelectorAll('.button1');
+const buttons2 = document.querySelectorAll('.button2');
 
-// function test() {
-// 	// var buttonContainer = document.getElementById("buttonContainer");
-// 	let buttonContainer =
-// 		document.getElementsByClassName('sub_btn_container').firstElementChild;
-// 	if (buttonContainer.innerHTML === '') {
-// 		buttonContainer.innerHTML = `
-// 		<button>Button 1</button>
-// 		<button>Button 2</button>
-// 	  `;
-// 	} else {
-// 		buttonContainer.innerHTML = '';
-// 	}
-// }
+toggleButton.addEventListener('click', () => {
+	buttons1.forEach((button1) => {
+		button1.classList.toggle('hidden');
+	});
+	buttons2.forEach((button2) => {
+		button2.classList.toggle('hidden');
+	});
+});
+
+// show dropdown menu on Trigonimetry button click
+const dropbtn1 = document.getElementById('dropbtn1');
+const dropdownContent1 = document.getElementById('dropdown_content1');
+
+dropbtn1.addEventListener('click', () => {
+	dropdownContent1.style.display =
+		dropdownContent1.style.display === 'none' ? 'block' : 'none';
+});
+
+// show dropdown menu on Function button click
+const dropbtn = document.getElementById('dropbtn');
+const dropdownContent = document.getElementById('dropdown_content');
+
+dropbtn.addEventListener('click', () => {
+	dropdownContent.style.display =
+		dropdownContent.style.display === 'none' ? 'block' : 'none';
+});
+
+// Event listener for both dropdown, display none when user clicks outside dropdown buttons
+document.addEventListener('click', (event) => {
+	if (
+		!dropbtn.contains(event.target) &&
+		!dropdownContent.contains(event.target)
+	) {
+		dropdownContent.style.display = 'none';
+	}
+	if (
+		!dropbtn1.contains(event.target) &&
+		!dropdownContent1.contains(event.target)
+	) {
+		dropdownContent1.style.display = 'none';
+	}
+});

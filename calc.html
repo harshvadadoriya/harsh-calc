@@ -39,27 +39,52 @@
 							><button type="submit" id="ms">MS</button>
 						</div>
 						<div class="dropdown_btn">
-							<button class="trigonometry" type="submit" id="trigonometry">
-								<span
-									><img
-										src="Asset/trigonometry.png"
-										style="height: 18px"
-										alt=""
-										srcset=""
-								/></span>
-								Trigonometry<span class="arrow"></span></button
-							><button class="function" type="submit" id="function">
-								<span
-									><img
-										src="Asset/function-f.png"
-										style="height: 20px"
-										alt=""
-										srcset="" /></span
-								>Function<span class="arrow"></span>
-							</button>
+							<div class="dropdown1">
+								<button
+									class="dropbtn1"
+									id="dropbtn1"
+									type="submit"
+									id="trigonometry"
+								>
+									<span
+										><img
+											src="Asset/trigonometry.png"
+											style="height: 18px; margin-right: 2px"
+											alt="Trigonometry"
+									/></span>
+									Trigonometry<span class="arrow"></span>
+								</button>
+								<div class="dropdown_content1" id="dropdown_content1">
+									<button>sin</button>
+									<button>cos</button>
+									<button>sec</button>
+									<button>cosec</button>
+									<button>tan</button>
+									<button>cot</button>
+								</div>
+							</div>
+							<div class="dropdown">
+								<button class="dropbtn" id="dropbtn" type="submit">
+									<span
+										><img
+											src="Asset/function-f.png"
+											style="height: 20px"
+											alt="function"
+									/></span>
+									Function<span class="arrow"></span>
+								</button>
+								<div class="dropdown_content" id="dropdown_content">
+									<button>abs</button>
+									<button>rand</button>
+									<button>ceil</button>
+									<button>round</button>
+									<button>cbrt</button>
+									<button>floor</button>
+								</div>
+							</div>
 						</div>
-						<div>
-							<button type="submit" id="second">
+						<div class="math_functions">
+							<button type="submit" id="toggle-button">
 								2 <sup style="margin-left: -5px">nd</sup>
 							</button>
 							<button type="submit" id="pie">π</button
@@ -80,103 +105,152 @@
 								⌫
 							</button>
 						</div>
-						<div class="sub_btn_container">
-							<button type="submit" id="x_square">x<sup>2 </sup></button
-							><button type="submit" id="one_by_x">1/x</button
-							><button type="submit" id="x_mod">|x|</button
-							><button type="submit" id="exp">exp</button
-							><button type="submit" class="calcBtn" id="mod" value="%">
-								mod
-							</button>
-						</div>
-						<div class="sub_btn_container">
-							<button type="submit" id="2_root_x">
-								<span style="margin-left: -5px">√x</span></button
-							><button
-								type="submit"
-								id="opne_bracket"
-								value="&lpar;"
-								class="calcBtn"
-							>
-								(</button
-							><button
-								type="submit"
-								id="close_bracket"
-								value="&rpar;"
-								class="calcBtn"
-							>
-								)</button
-							><button type="submit" id="n_factorial">n!</button
-							><button type="submit" id="divide" value="/" class="calcBtn">
-								÷
-							</button>
-						</div>
-						<div class="sub_container">
+						<div class="main_btn_container">
 							<div class="sub_btn_container">
-								<button type="submit" id="x_power_y">x<sup>y</sup></button
-								><button type="submit" class="calcBtn" id="7" value="7">
-									7</button
-								><button type="submit" class="calcBtn" id="8" value="8">
-									8</button
-								><button type="submit" class="calcBtn" id="9" value="9">
-									9</button
-								><button type="submit" id="multiply" value="*" class="calcBtn">
-									×
+								<button type="submit" id="x_square" class="button1">
+									x<sup>2 </sup>
+								</button>
+								<button type="submit" id="x_cube" class="button2 hidden">
+									x<sup>3 </sup>
+								</button>
+								<button type="submit" id="one_by_x">1/x</button
+								><button type="submit" id="x_mod">|x|</button
+								><button type="submit" id="exp">exp</button
+								><button type="submit" class="calcBtn" id="mod" value="%">
+									mod
 								</button>
 							</div>
 							<div class="sub_btn_container">
-								<button type="submit" id="10_power_x">10<sup>x</sup></button
-								><button type="submit" class="calcBtn" id="4" value="4">
-									4</button
-								><button type="submit" class="calcBtn" id="5" value="5">
-									5</button
-								><button type="submit" class="calcBtn" id="6" value="6">
-									6</button
-								><button
+								<button type="submit" id="root_x" class="button1">
+									<span>√x</span>
+								</button>
+								<button type="submit" id="3_root_x" class="button2 hidden">
+									<span>3√x</span>
+								</button>
+								<button
 									type="submit"
-									id="subtraction"
-									value="-"
+									id="opne_bracket"
+									value="&lpar;"
 									class="calcBtn"
 								>
-									−
-								</button>
-							</div>
-							<div class="sub_btn_container">
-								<button type="submit" id="log" class="calcBtn" value="log(">
-									log</button
-								><button type="submit" class="calcBtn" id="1" value="1">
-									1</button
-								><button type="submit" class="calcBtn" id="2" value="2">
-									2</button
-								><button type="submit" class="calcBtn" id="3" value="3">
-									3</button
-								><button type="submit" id="addition" value="+" class="calcBtn">
-									+
-								</button>
-							</div>
-							<div class="sub_btn_container">
-								<button type="submit" id="in" class="calcBtn" value="ln(">
-									ln</button
+									(</button
 								><button
 									type="submit"
+									id="close_bracket"
+									value="&rpar;"
 									class="calcBtn"
-									id="addition_by_subtraction"
 								>
-									+ <sub style="margin-left: -6px">/</sub><sub>−</sub></button
-								><button type="submit" class="calcBtn" id="zero" value="0">
-									0</button
-								><button type="submit" class="calcBtn" id="dot" value=".">
-									.</button
-								><button
-									type="submit"
-									id="eval"
-									class="equal"
-									onmouseover="this.style.backgroundColor='#b3e0ff'"
-									onmouseout="this.style.backgroundColor='#99d6ff'"
-									style="background-color: #99d6ff"
-								>
-									=
+									)</button
+								><button type="submit" id="n_factorial">n!</button
+								><button type="submit" id="divide" value="/" class="calcBtn">
+									÷
 								</button>
+							</div>
+							<div class="sub_container">
+								<div class="sub_btn_container">
+									<button type="submit" id="x_power_y" class="button1">
+										x<sup>y</sup>
+									</button>
+									<button type="submit" id="y_root_x" class="button2 hidden">
+										<span>y√x</span>
+									</button>
+									<button type="submit" class="calcBtn" id="7" value="7">
+										7</button
+									><button type="submit" class="calcBtn" id="8" value="8">
+										8</button
+									><button type="submit" class="calcBtn" id="9" value="9">
+										9</button
+									><button
+										type="submit"
+										id="multiply"
+										value="*"
+										class="calcBtn"
+									>
+										×
+									</button>
+								</div>
+								<div class="sub_btn_container">
+									<button type="submit" class="button1" id="10_power_x">
+										10<sup>x</sup>
+									</button>
+									<button type="submit" class="button2 hidden" id="2_power_X">
+										2<sup>x</sup>
+									</button>
+									<button type="submit" class="calcBtn" id="4" value="4">
+										4</button
+									><button type="submit" class="calcBtn" id="5" value="5">
+										5</button
+									><button type="submit" class="calcBtn" id="6" value="6">
+										6</button
+									><button
+										type="submit"
+										id="subtraction"
+										value="-"
+										class="calcBtn"
+									>
+										−
+									</button>
+								</div>
+								<div class="sub_btn_container">
+									<button
+										type="submit"
+										id="log"
+										class="calcBtn button1"
+										value="log("
+									>
+										log
+									</button>
+									<button type="submit" class="button2 hidden">
+										log<sub>y</sub>x
+									</button>
+									<button type="submit" class="calcBtn" id="1" value="1">
+										1</button
+									><button type="submit" class="calcBtn" id="2" value="2">
+										2</button
+									><button type="submit" class="calcBtn" id="3" value="3">
+										3</button
+									><button
+										type="submit"
+										id="addition"
+										value="+"
+										class="calcBtn"
+									>
+										+
+									</button>
+								</div>
+								<div class="sub_btn_container">
+									<button
+										type="submit"
+										id="in"
+										class="calcBtn button1"
+										value="ln("
+									>
+										ln
+									</button>
+									<button type="submit" class="button2 hidden" id="e_power_x">
+										e<sup>x</sup>
+									</button>
+									<button
+										type="submit"
+										class="calcBtn"
+										id="addition_by_subtraction"
+									>
+										+ <sub style="margin-left: -6px">/</sub><sub>−</sub></button
+									><button type="submit" class="calcBtn" id="zero" value="0">
+										0</button
+									><button type="submit" class="calcBtn" id="dot" value=".">
+										.</button
+									><button
+										type="submit"
+										id="eval"
+										class="equal"
+										onmouseover="this.style.backgroundColor='#b3e0ff'"
+										onmouseout="this.style.backgroundColor='#99d6ff'"
+										style="background-color: #99d6ff"
+									>
+										=
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
