@@ -1,3 +1,5 @@
+// import { evaluateExpression } from './utils/utils.js';
+import { calculate } from './utils/utils.js';
 // let result = document.getElementById('result').value;
 
 // (2nd) toggle button functionality
@@ -68,6 +70,7 @@ const arr = [
 	')',
 	'.',
 	'π',
+	'e',
 ];
 
 // display keyboard key on screen when keyboard numbers or operators click
@@ -76,19 +79,30 @@ document.addEventListener('keydown', (event) => {
 	if (arr.includes(event.key)) {
 		document.getElementById('result').value += event.key;
 	}
-	if (event.key == 'Enter' || event.key == '=') {
+	if (event.key === '=') {
 		try {
+			// let result = document.getElementById('result').value;
+			// result = result?.replaceAll('π', '3.14');
+			// result = result?.replaceAll('e', '2.7182');
+			// document.getElementById('result').value = eval(result);
+			// console.log(result);
 			let result = document.getElementById('result').value;
-			document.getElementById('result').value = eval(result);
-			console.log(result);
+			calculate(result);
+			if (result === '') {
+				document.getElementById('result').value = '';
+			}
 		} catch (error) {
 			document.getElementById('result').value = 'Syntax Error';
 		}
 	}
-	if (event.key == 'Backspace') {
+	if (event.key === 'Backspace') {
 		document.getElementById('result').value = document
 			.getElementById('result')
 			.value.slice(0, -1);
+	}
+	// prevent from Enter key pressing
+	if (event.key === 'Enter') {
+		event.preventDefault();
 	}
 });
 
@@ -112,35 +126,11 @@ for (let i = 0; i < numberButtons.length; i++) {
 const equalBtn = document.getElementById('eval');
 equalBtn.addEventListener('click', () => {
 	try {
-		function evaluateExpression(expr) {
-			// Split the expression into individual tokens
-			const tokens = expr.match(/\d+|\+|\-|\*|\/|\(|\)|π/g);
-
-			// Iterate through the tokens and process "pi" and the preceding number
-			let i = 0;
-			while (i < tokens.length) {
-				if (tokens[i] === 'π') {
-					if (i > 0 && /\d+/.test(tokens[i - 1])) {
-						tokens[i - 1] = parseFloat(tokens[i - 1]) * 3.14;
-						tokens.splice(i, 1);
-						i--;
-					} else {
-						tokens[i] = 3.14;
-					}
-				}
-				i++;
-			}
-
-			// Convert the remaining tokens to a string and evaluate it
-			const modifiedExpr = tokens.join('');
-			const result = eval(modifiedExpr);
-
-			return result;
+		let result = document.getElementById('result').value;
+		calculate(result);
+		if (result === '') {
+			document.getElementById('result').value = '';
 		}
-		let expr = document.getElementById('result').value;
-		let result = evaluateExpression(expr);
-		console.log(result);
-		document.getElementById('result').value = result;
 	} catch (error) {
 		document.getElementById('result').value = 'Syntax Error';
 	}

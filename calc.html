@@ -32,8 +32,8 @@
 							><button type="submit" id="fe">F-E</button>
 						</div>
 						<div class="memory_function">
-							<button type="submit" id="mc">MC</button
-							><button type="submit" id="mr">MR</button
+							<button type="submit" id="mc" disabled>MC</button
+							><button type="submit" id="mr" disabled>MR</button
 							><button type="submit" id="m_plus">M+</button
 							><button type="submit" id="m_minus">M-</button
 							><button type="submit" id="ms">MS</button>
@@ -87,8 +87,8 @@
 							<button type="submit" id="toggle-button">
 								2 <sup style="margin-left: -5px">nd</sup>
 							</button>
-							<button type="submit" id="pie" class="calcBtn" value="π">π</button
-							><button type="submit" id="e">e</button
+							<button type="submit" class="calcBtn" id="π" value="π">π</button
+							><button type="submit" class="calcBtn" id="e" value="e">e</button
 							><button
 								type="submit"
 								onclick="document.getElementById('result').value = ''"
@@ -141,7 +141,13 @@
 									class="calcBtn"
 								>
 									)</button
-								><button type="submit" id="n_factorial">n!</button
+								><button
+									type="submit"
+									id="n_factorial"
+									class="calcBtn"
+									value="!"
+								>
+									n!</button
 								><button type="submit" id="divide" value="/" class="calcBtn">
 									÷
 								</button>
